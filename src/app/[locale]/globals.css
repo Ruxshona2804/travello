@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+
+@theme{
+  --color-error: #DF6951;
+  --color-main:#181E4B;
+  --color-gray:rgba(94, 98, 130, 1)
+}
+
+.container{
+  max-width: 1440px;
+  width: 85%;
+}
