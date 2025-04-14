@@ -15,7 +15,11 @@ const {theme} = useTheme()
 
     return (
         <>
-        <Image src={theme == 'dark' ? black : white} alt='bg' width={800} height={500} className='absolute  top-0 right-0 -z-10' /> 
+        {
+            theme == 'light' ?<Image src={white} alt='bg' width={800} height={500} className='absolute  top-0 right-0 -z-10' />:
+            <Image src={black} alt='bg' width={800} height={500} className='absolute  top-0 right-0 -z-10' />
+        }
+        
         <div className='container dark:text-white mx-auto p-3 flex items-center justify-between mt-4'>
             <div className='dark:bg-gray-500 p-2 rounded-lg '>
                 <Image src={logo} alt='travello' width={180} height={50} />
@@ -29,8 +33,8 @@ const {theme} = useTheme()
                 </ul>
             </div>
             <div className='flex items-center gap-6'>
-                <button className='hover:border rounded-lg px-3 py-1'>Login</button>
-                <button className='hover:border rounded-lg px-3 py-1'>Sign up</button>
+                <button className='hover:border rounded-lg px-3 py-1'>{t("Login")}</button>
+                <button className='hover:border rounded-lg px-3 py-1'>{t("Sign up")}</button>
               
                 <DarkMode />
                 <LangSwitch />

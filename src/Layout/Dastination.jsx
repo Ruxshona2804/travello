@@ -1,52 +1,29 @@
 import Image from 'next/image'
 import React from 'react'
-import italy from '@/assets/images/italy.svg'
+
+import decore from '@/assets/images/Decore.svg'
+import italy from '@/assets/images/kolizey.svg'
 import london from '@/assets/images/london.svg'
 import europe from '@/assets/images/europe.svg'
-import decore from '@/assets/images/Decore.svg'
+import { useTranslations } from 'next-intl';
+
 const Dastination = () => {
+const t = useTranslations()
     return (
-        <div className="container mx-auto ">
+        <div className="container flex flex-col items-center mx-auto relative h-screen ">
             <div className="text-center mb-12">
-                <p className="text-xl text-gray-500">Top Selling</p>
-                <p className="text-4xl md:text-5xl font-bold text-gray-800">Top Destinations</p>
+                <p className="text-xl dark:text-white text-gray-500">{t("Top Selling")}</p>
+                <p className="text-4xl dark:text-white md:text-5xl font-bold text-gray-800">{t("Top Destinations")}</p>
             </div>
 
-            <div className="cards relative flex items-center gap-4">
-                <div className="card  ">
-                    <Image src={italy} alt='italy' width={500}   className="w-full object-contain" />
-                    <div className="p-4">
-                        <p className="">
-                            Rome, Italty <span className="text-orange-500 font-bold">$5.42k</span>
-                        </p>
-                        <p className="text-gray-500 text-sm mt-2">10 Days Trip</p>
-                    </div>
-                </div>
+            <div className="grid grid-cols-3 p-5">
+                <Image className='scale-115 mt-10  dark:brightness-85' src={italy} alt='italy'  />
+                <Image className='scale-115 mt-10  dark:brightness-85' src={london} alt='london'  />
+                <Image className='scale-115 mt-10  z-10 dark:brightness-85' src={europe} alt='europe'  />
+            </div>
 
-                <div className="">
-                    <Image src={london} alt='london'  className="" />
-                    <div className="">
-                        <p className="">
-                            London, UK <span className="">$4.2k</span>
-                        </p>
-                        <p className="">12 Days Trip</p>
-                    </div>
-                </div>
-
-                <div className="z-10 ">
-                    <Image src={europe} alt='europe'  className="w-full object-cover" />
-
-                    <div className="p-4">
-                        <p className="">
-                            Rome, Italy <span className="text-orange-500 font-bold">$15k</span>
-                        </p>
-                        <p className="text-gray-500 text-sm mt-2">28 Days Trip</p>
-                    </div>
-
-                </div>
-                <div className='absolute z-0 bottom-10 -right-20'>
-                    <Image className='' src={decore} alt="decore" />
-                </div>
+            <div className="absolute z-0 bottom-40 -right-1">
+                <Image className='scale-70' src={decore} alt="decore" />
             </div>
         </div>
     )
